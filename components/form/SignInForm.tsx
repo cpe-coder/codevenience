@@ -1,7 +1,9 @@
 "use client";
 
+import { Google } from "@/constant/icon";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Eye, EyeOff, Scan } from "lucide-react";
+import { ArrowRight, Eye, EyeOff, Scan } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { useForm } from "react-hook-form";
@@ -49,15 +51,15 @@ const SignInForm = () => {
 
 	return (
 		<div className="px-14">
-			<div className="flex flex-col items-center justify-center shadow-2xl rounded-lg p-4 gap-4">
+			<div className="flex flex-col items-center justify-center shadow-2xl rounded-lg p-5 gap-4">
 				<div className="p-2 rounded-2xl bg-gradient-to-br from-purple-500 to-indigo-500 text-white flex items-center gap-2">
 					<Scan size={60} />
 				</div>
-				<div className="flex flex-col items-center gap-2 pb-5">
+				<div className="flex flex-col items-center gap-1 pb-4 ">
 					<h1 className="font-bold text-slate-700 text-2xl text-wrap">
 						Welcome Back
 					</h1>
-					<p className="text-slate-500 font-medium text-md text-wrap">
+					<p className="text-slate-500 font-medium text-sm text-wrap">
 						Sign in to access your business dashboard
 					</p>
 				</div>
@@ -76,7 +78,7 @@ const SignInForm = () => {
 										<FormControl>
 											<Input
 												placeholder="Enter your email address"
-												className=" text-slate-500 bg-slate-200 rounded-md w-80 active:outline-none focus:outline-none"
+												className=" text-slate-500 bg-slate-200 rounded-md mb-2 w-80 active:outline-none focus:outline-none"
 												{...field}
 											/>
 										</FormControl>
@@ -117,20 +119,68 @@ const SignInForm = () => {
 								)}
 							/>
 						</div>
+						<div className="flex justify-between gap-2 pt-4">
+							<div className="flex items-center gap-1">
+								<div>
+									<Input
+										type="checkbox"
+										id="remember-me"
+										className="w-4 h-4 p-0 m-0 bg-transparent active:bg-none focus:bg-none"
+									/>
+								</div>
+								<div>
+									<Label className="text-slate-500" htmlFor="remember-me">
+										<span className="text-xs">Remember me for 30 days</span>
+									</Label>
+								</div>
+							</div>
+							<div>
+								<Link href={"/forgot-password"}>
+									<p className="text-purple-600 text-xs hover:text-purple-900">
+										Forgot password?
+									</p>
+								</Link>
+							</div>
+						</div>
+
 						<Button
-							className="w-full mt-8 py-2 bg-gradient-to-r from-purple-500 to-indigo-500 hover:transition-all hover:duration-200 duration-200 transition-all hover:cursor-pointer rounded-md"
+							className="w-full mt-8 py-2 bg-gradient-to-r from-purple-500 to-indigo-500 hover:transition-all hover:duration-300 hover:bg-gradient-to-r hover:from-indigo-500 hover:to-purple-500 duration-300 transition-all hover:cursor-pointer rounded-md"
 							type="submit"
 						>
-							Sign in
+							<span>Sign In to Dashboard</span>
+							<ArrowRight />
 						</Button>
 					</form>
-					<div className="flex gap-2 items-center text-black">
-						<p>Don&apos;t have account?</p>
-						<Link className="hover:text-blue-900" href={"/sign-up"}>
-							Sign Up
-						</Link>
-					</div>
 				</Form>
+				<div className="flex gap-2 items-center">
+					<div className="border"></div>
+					<div>
+						<p className="text-slate-500 text-xs font-medium">
+							OR CONTINUE WITH
+						</p>
+					</div>
+					<div className="border"></div>
+				</div>
+				<div className="w-full flex items-center">
+					<Button
+						className="w-full hover:cursor-pointer py-2 gap-4 bg-white border items-center justify-center border-slate-300 hover:bg-slate-100 hover:transition-all hover:duration-200 duration-200 transition-all rounded-md"
+						type="button"
+					>
+						<Image src={Google} alt="Google" className="w-4" />
+						<span className="text-slate-500">Sign in with Google</span>
+					</Button>
+				</div>
+			</div>
+			<div className="w-full flex justify-center items-center mt-6">
+				<div className="flex gap-2 items-center text-xs text-black">
+					<p className="text-slate-500">Don&apos;t have account?</p>
+					<Link
+						className="text-purple-600 text-xs hover:text-purple-900"
+						href={"/sign-up"}
+					>
+						Create your free account
+					</Link>
+				</div>
 			</div>
 		</div>
 	);
