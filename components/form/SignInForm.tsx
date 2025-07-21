@@ -55,11 +55,11 @@ const SignInForm = () => {
 				<div className="p-2 rounded-2xl bg-gradient-to-br from-purple-500 to-indigo-500 text-white flex items-center gap-2">
 					<Scan size={60} />
 				</div>
-				<div className="flex flex-col items-center gap-1 pb-4 ">
-					<h1 className="font-bold text-slate-700 text-2xl text-wrap">
+				<div className="flex flex-col items-center gap-1 pb-3 ">
+					<h1 className="font-bold text-slate-700 text-xl text-wrap">
 						Welcome Back
 					</h1>
-					<p className="text-slate-500 font-medium text-sm text-wrap">
+					<p className="text-slate-500 font-medium text-xs text-wrap">
 						Sign in to access your business dashboard
 					</p>
 				</div>
