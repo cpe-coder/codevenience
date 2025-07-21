@@ -46,6 +46,8 @@ const SignUpForm = () => {
 		},
 	});
 	const [isPasswordVisible, setIsPasswordVisible] = React.useState(false);
+	const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] =
+		React.useState(false);
 
 	const onSubmit = (values: z.infer<typeof FormSchema>) => {
 		try {
@@ -55,8 +57,11 @@ const SignUpForm = () => {
 		}
 	};
 
-	const handleClick = () => {
+	const passwordVisible = () => {
 		setIsPasswordVisible((prev) => !prev);
+	};
+	const confirmPasswordVisible = () => {
+		setIsConfirmPasswordVisible((prev) => !prev);
 	};
 
 	return (
@@ -177,7 +182,7 @@ const SignUpForm = () => {
 														{...field}
 														passwordComponents={
 															<Button
-																onClick={handleClick}
+																onClick={passwordVisible}
 																className="bg-transparent border-0 hover:bg-transparent focus:bg-transparent justify-end hover:cursor-pointer"
 															>
 																{isPasswordVisible ? (
@@ -207,14 +212,16 @@ const SignUpForm = () => {
 													<Input
 														placeholder="Confirm password"
 														className=" rounded-md text-slate-500 bg-slate-200 active:outline-none focus:outline-none"
-														type={isPasswordVisible ? "text" : "password"}
+														type={
+															isConfirmPasswordVisible ? "text" : "password"
+														}
 														{...field}
 														passwordComponents={
 															<Button
-																onClick={handleClick}
+																onClick={confirmPasswordVisible}
 																className="bg-transparent border-0 hover:bg-transparent focus:bg-transparent justify-end hover:cursor-pointer"
 															>
-																{isPasswordVisible ? (
+																{isConfirmPasswordVisible ? (
 																	<EyeOff className="text-slate-500" />
 																) : (
 																	<Eye className="text-slate-500" />
@@ -240,14 +247,14 @@ const SignUpForm = () => {
 						</Button>
 					</form>
 				</Form>
-				<div className="flex gap-2 items-center">
-					<div className="border"></div>
-					<div>
-						<p className="text-slate-500 text-xs font-medium">
+				<div className=" w-full flex flex-row items-center justify-between gap-1">
+					<div className="w-full rounded-md bg-slate-300 h-[2px]"></div>
+					<div className="w-full">
+						<b className="text-slate-500 text-xs font-medium">
 							OR CONTINUE WITH
-						</p>
+						</b>
 					</div>
-					<div className="border"></div>
+					<div className="w-full rounded-md bg-slate-300 h-[2px]"></div>
 				</div>
 				<div className="w-full flex items-center">
 					<Button

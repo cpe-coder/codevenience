@@ -78,7 +78,7 @@ const SignInForm = () => {
 										<FormControl>
 											<Input
 												placeholder="Enter your email address"
-												className=" text-slate-500 bg-slate-200 rounded-md mb-2 w-80 active:outline-none focus:outline-none"
+												className=" text-slate-500 bg-slate-200 rounded-md mb-2 w-[350px] active:outline-none focus:outline-none"
 												{...field}
 											/>
 										</FormControl>
@@ -97,7 +97,7 @@ const SignInForm = () => {
 										<FormControl>
 											<Input
 												placeholder="Enter your password"
-												className=" rounded-md text-slate-500 bg-slate-200 w-80  active:outline-none focus:outline-none"
+												className=" rounded-md text-slate-500 bg-slate-200 w-[350px]  active:outline-none focus:outline-none"
 												type={isPasswordVisible ? "text" : "password"}
 												{...field}
 												passwordComponents={
@@ -152,14 +152,14 @@ const SignInForm = () => {
 						</Button>
 					</form>
 				</Form>
-				<div className="flex gap-2 items-center">
-					<div className="border"></div>
-					<div>
-						<p className="text-slate-500 text-xs font-medium">
+				<div className=" w-full flex flex-row items-center justify-between gap-1">
+					<div className="w-full rounded-md bg-slate-300 h-[2px]"></div>
+					<div className="w-full">
+						<b className="text-slate-500 text-xs font-medium">
 							OR CONTINUE WITH
-						</p>
+						</b>
 					</div>
-					<div className="border"></div>
+					<div className="w-full rounded-md bg-slate-300 h-[2px]"></div>
 				</div>
 				<div className="w-full flex items-center">
 					<Button
