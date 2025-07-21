@@ -1,6 +1,8 @@
 "use client";
 
+import { zodResolver } from "@hookform/resolvers/zod";
 import { Eye, EyeOff, Scan } from "lucide-react";
+import Link from "next/link";
 import React from "react";
 import { useForm } from "react-hook-form";
 import z from "zod";
@@ -13,6 +15,7 @@ import {
 	FormMessage,
 } from "../ui/form";
 import { Input } from "../ui/input";
+import { Label } from "../ui/label";
 
 const FormSchema = z.object({
 	email: z.string().min(1, "Email is required").email("Invalid email"),
@@ -45,23 +48,26 @@ const SignInForm = () => {
 	};
 
 	return (
-		<div className="px-10">
+		<div className="px-14">
 			<div className="flex flex-col items-center justify-center shadow-2xl rounded-lg p-4 gap-4">
 				<div className="p-2 rounded-2xl bg-gradient-to-br from-purple-500 to-indigo-500 text-white flex items-center gap-2">
 					<Scan size={60} />
 				</div>
-				<div className="flex flex-col items-center gap-2">
+				<div className="flex flex-col items-center gap-2 pb-5">
 					<h1 className="font-bold text-slate-700 text-2xl text-wrap">
 						Welcome Back
 					</h1>
-					<p className="text-slate-500 font-medium text-md text-wrap  ">
+					<p className="text-slate-500 font-medium text-md text-wrap">
 						Sign in to access your business dashboard
 					</p>
 				</div>
 
 				<Form {...form}>
 					<form onSubmit={form.handleSubmit(onSubmit)} className="w-full">
-						<div className="space-y-6">
+						<div className="space-y-2">
+							<Label htmlFor="email" className="text-slate-500">
+								Email address
+							</Label>
 							<FormField
 								control={form.control}
 								name="email"
@@ -69,8 +75,8 @@ const SignInForm = () => {
 									<FormItem>
 										<FormControl>
 											<Input
-												placeholder="Email address"
-												className=" text-black bg-amber-200 rounded-full w-80 border-black border active:outline-none focus:outline-none"
+												placeholder="Enter your email address"
+												className=" text-slate-500 bg-slate-200 rounded-md w-80 active:outline-none focus:outline-none"
 												{...field}
 											/>
 										</FormControl>
@@ -78,6 +84,9 @@ const SignInForm = () => {
 									</FormItem>
 								)}
 							/>
+							<Label htmlFor="password" className="text-slate-500">
+								Password
+							</Label>
 							<FormField
 								control={form.control}
 								name="password"
@@ -85,19 +94,19 @@ const SignInForm = () => {
 									<FormItem>
 										<FormControl>
 											<Input
-												placeholder="Password"
-												className=" rounded-full text-black bg-amber-200 w-80 border-black border active:outline-none focus:outline-none"
+												placeholder="Enter your password"
+												className=" rounded-md text-slate-500 bg-slate-200 w-80  active:outline-none focus:outline-none"
 												type={isPasswordVisible ? "text" : "password"}
 												{...field}
 												passwordComponents={
 													<Button
 														onClick={handleClick}
-														className="bg-transparent border-0 hover:bg-transparent focus:bg-transparent hover:cursor-pointer"
+														className="bg-transparent border-0 hover:bg-transparent focus:bg-transparent justify-end hover:cursor-pointer"
 													>
 														{isPasswordVisible ? (
-															<EyeOff className="text-black" />
+															<EyeOff className="text-slate-500" />
 														) : (
-															<Eye className="text-black" />
+															<Eye className="text-slate-500" />
 														)}
 													</Button>
 												}
@@ -109,7 +118,7 @@ const SignInForm = () => {
 							/>
 						</div>
 						<Button
-							className="w-full mt-8 py-2 bg-amber-300 hover:bg-amber-100 hover:transition-all hover:duration-200 duration-200 transition-all hover:cursor-pointer rounded-full"
+							className="w-full mt-8 py-2 bg-gradient-to-r from-purple-500 to-indigo-500 hover:transition-all hover:duration-200 duration-200 transition-all hover:cursor-pointer rounded-md"
 							type="submit"
 						>
 							Sign in
@@ -128,10 +137,3 @@ const SignInForm = () => {
 };
 
 export default SignInForm;
-function zodResolver(
-	FormSchema: any
-):
-	| import("react-hook-form").Resolver<z.infer<any>, any, z.infer<any>>
-	| undefined {
-	throw new Error("Function not implemented.");
-}
