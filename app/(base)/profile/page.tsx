@@ -1,4 +1,7 @@
-import ProfileMenu from "@/components/profile-menu";
+"use client";
+
+import BusinessDetails from "@/components/form/BusinessDetails";
+import PersonalInformation from "@/components/form/PersonalInformation";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import {
@@ -8,9 +11,13 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "@/components/ui/select";
-import { ArrowLeft, Edit, UserRound } from "lucide-react";
+import { ArrowLeft, Building2, Edit, UserRound } from "lucide-react";
+import React from "react";
 
 export default function Profile() {
+	const [activeSection, setActiveSection] = React.useState<
+		"personalInfo" | "businessDetails"
+	>("personalInfo");
 	return (
 		<div className="flex flex-col w-full h-full  p-10 justify-center space-y-8">
 			<div className="shadow p-2 rounded-md flex gap-2 items-center justify-between">
@@ -75,12 +82,59 @@ export default function Profile() {
 						</Select>
 					</div>
 				</div>
-				<div className="w-full">
-					<div className="p-1 rounded-md shadow bg-slate-100">
-						<ProfileMenu />
+				<div className="w-full space-y-8">
+					<div className="w-full">
+						<div className="p-1 rounded-md shadow bg-slate-100">
+							<div className="flex ">
+								<div className="w-full">
+									<Button
+										onClick={() => setActiveSection("personalInfo")}
+										className={`w-full rounded-sm  border-0 shadow-none hover:cursor-pointer hover:bg-transparent transition-all duration-200 ${
+											activeSection == "personalInfo"
+												? "bg-white text-slate-700 hover:bg-white"
+												: "bg-transparent text-slate-500"
+										}`}
+									>
+										<UserRound className="text-slate-500" />
+										<span>Personal Information</span>
+									</Button>
+								</div>
+								<div className="w-full">
+									<Button
+										onClick={() => setActiveSection("businessDetails")}
+										className={`w-full rounded-sm  border-0 shadow-none hover:cursor-pointer hover:bg-transparent transition-all duration-200  ${
+											activeSection == "businessDetails"
+												? "bg-white text-slate-700 hover:bg-white"
+												: "bg-transparent text-slate-500"
+										}`}
+									>
+										<Building2 className="text-slate-500" />
+										<span>Business Details</span>
+									</Button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div className="rounded-md shadow p-6 space-y-8">
+						<div className="flex gap-2 items-center">
+							{activeSection == "personalInfo" ? (
+								<UserRound className="text-slate-700 w-5 h-5" />
+							) : (
+								<Building2 className="text-slate-700 w-5 h-5" />
+							)}
+							<Label className="text-slate-700 text-xl">
+								{activeSection == "personalInfo"
+									? "Personal Information"
+									: "Business Details"}
+							</Label>
+						</div>
+						{activeSection == "personalInfo" ? (
+							<PersonalInformation />
+						) : (
+							<BusinessDetails />
+						)}
 					</div>
 				</div>
-				<div>hello</div>
 			</div>
 		</div>
 	);

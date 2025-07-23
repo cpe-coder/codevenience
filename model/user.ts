@@ -6,7 +6,10 @@ interface IUser extends Document {
 	lastName: string;
 	businessName: string;
 	email: string;
-	password?: string;
+	phone?: string;
+	address?: string;
+	jobTitle?: string;
+	password: string;
 }
 
 const UserSchema: Schema<IUser> = new mongoose.Schema({
@@ -26,9 +29,21 @@ const UserSchema: Schema<IUser> = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
+	phone: {
+		type: String,
+		require: false,
+	},
+	address: {
+		type: String,
+		require: false,
+	},
+	jobTitle: {
+		type: String,
+		require: false,
+	},
 	password: {
 		type: String,
-		required: false,
+		required: true,
 	},
 });
 
