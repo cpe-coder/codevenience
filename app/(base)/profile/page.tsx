@@ -1,3 +1,4 @@
+import ProfileMenu from "@/components/profile-menu";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import {
@@ -33,7 +34,7 @@ export default function Profile() {
 					</Button>
 				</div>
 			</div>
-			<div className="flex space-x-6 items-center">
+			<div className="flex space-x-6">
 				<div className="space-y-8">
 					<div className="flex flex-col space-y-3 justify-center text-center shadow rounded-md w-90 p-6">
 						<div className="flex-1 items-center justify-center p-6 border-4 border-purple-500/20 self-center rounded-full">
@@ -74,7 +75,11 @@ export default function Profile() {
 						</Select>
 					</div>
 				</div>
-				<div className="shadow">hellow</div>
+				<div className="w-full">
+					<div className="p-1 rounded-md shadow bg-slate-100">
+						<ProfileMenu />
+					</div>
+				</div>
 			</div>
 		</div>
 	);
