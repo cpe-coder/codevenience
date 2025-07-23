@@ -5,6 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowRight, Eye, EyeOff, Scan } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React from "react";
 import { useForm } from "react-hook-form";
 import z from "zod";
@@ -36,6 +37,7 @@ const SignInForm = () => {
 		},
 	});
 	const [isPasswordVisible, setIsPasswordVisible] = React.useState(false);
+	const router = useRouter();
 
 	const onSubmit = (values: z.infer<typeof FormSchema>) => {
 		try {
@@ -144,6 +146,7 @@ const SignInForm = () => {
 						</div>
 
 						<Button
+							onClick={() => router.push("/profile")}
 							className="w-full mt-8 py-2 bg-gradient-to-r from-purple-500 to-indigo-500 hover:transition-all hover:duration-300 hover:bg-gradient-to-r hover:from-indigo-500 hover:to-purple-500 duration-300 transition-all hover:cursor-pointer rounded-md"
 							type="submit"
 						>

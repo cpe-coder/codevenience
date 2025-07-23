@@ -80,6 +80,7 @@ export default function Profile() {
 						<ProfileMenu />
 					</div>
 				</div>
+				<div>hello</div>
 			</div>
 		</div>
 	);
