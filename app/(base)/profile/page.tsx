@@ -19,14 +19,14 @@ export default function Profile() {
 		"personalInfo" | "businessDetails"
 	>("personalInfo");
 	return (
-		<div className="flex flex-col w-full h-full  p-10 justify-center space-y-8">
+		<div className="flex flex-col w-full h-full p-4 md:p-8 lg:p-10 justify-center space-y-8">
 			<div className="shadow p-2 rounded-md flex gap-2 items-center justify-between">
 				<div className="flex items-center gap-1">
 					<Button className="bg-transparent border-0 hover:bg-slate-200 hover:cursor-pointer">
 						<ArrowLeft color="black" />
 					</Button>
 					<div>
-						<h1 className="text-black font-medium text-xls">
+						<h1 className="text-black font-medium text-sm md:text-md lg:text-xl">
 							Profile Management
 						</h1>
 						<p className="text-xs font-medium text-slate-500">
@@ -41,9 +41,9 @@ export default function Profile() {
 					</Button>
 				</div>
 			</div>
-			<div className="flex space-x-6">
-				<div className="space-y-8">
-					<div className="flex flex-col space-y-3 justify-center text-center shadow rounded-md w-90 p-6">
+			<div className="flex flex-col md:flex-row lg:flex-row space-x-6 pb-10 md:pb-6">
+				<div className="space-y-4 md:space-y-8 lg:space-y-8 pb-6 md:pb-4 w-full md:w-auto lg:w-auto">
+					<div className="flex flex-col space-y-3 justify-center text-center shadow rounded-md w-full md:w-90 lg:w-90 p-6">
 						<div className="flex-1 items-center justify-center p-6 border-4 border-purple-500/20 self-center rounded-full">
 							<UserRound className="w-12 h-12" color="gray" />
 						</div>
@@ -65,7 +65,7 @@ export default function Profile() {
 							Oversee operations and manage team members
 						</p>
 					</div>
-					<div className="flex space-y-2 flex-col justify-center text-center shadow rounded-md w-90 p-6">
+					<div className="flex space-y-2 flex-col justify-center text-center shadow rounded-md w-full md:w-90 lg:w-90 p-6">
 						<Label className="text-slate-500">Simulate User Role:</Label>
 						<Select>
 							<SelectTrigger className="w-full">
