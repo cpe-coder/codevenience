@@ -1,9 +1,9 @@
 "use client";
 
-import CustomLogo from "@/components/custom-logo";
 import * as motion from "motion/react-client";
 import { useRouter } from "next/navigation";
 
+import CustomLogo from "@/components/custom-logo";
 import { useEffect } from "react";
 export default function Home() {
 	const router = useRouter();

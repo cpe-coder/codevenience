@@ -8,7 +8,7 @@ interface NewProps {
 
 const CustomLogo = ({ newUser }: NewProps) => {
 	return (
-		<div className="flex gap-2 items-center">
+		<div className="hidden lg:flex gap-2 items-center">
 			<div className="p-2 rounded-2xl bg-gradient-to-br from-purple-500 to-indigo-500 text-white flex items-center gap-2">
 				<div className="relative">
 					<Scan size={60} />

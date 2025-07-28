@@ -52,7 +52,7 @@ const SignInForm = () => {
 	};
 
 	return (
-		<div className="px-14">
+		<div className="px-auto mx-auto md:px-8 lg:px-14">
 			<div className="flex flex-col items-center justify-center shadow-2xl rounded-lg p-5 gap-4">
 				<div className="p-2 rounded-2xl bg-gradient-to-br from-purple-500 to-indigo-500 text-white flex items-center gap-2">
 					<Scan size={60} />
