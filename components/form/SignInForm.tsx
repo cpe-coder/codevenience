@@ -165,13 +165,11 @@ const SignInForm = () => {
 					</form>
 				</Form>
 				<div className=" w-full flex flex-row items-center justify-between gap-1">
-					<div className="w-auto rounded-md bg-slate-300 h-[4px]"></div>
-					<div className="w-auto">
-						<p className="text-slate-500 text-xs font-medium">
+					<div className="w-full">
+						<p className="text-slate-500 text-center text-xs font-medium">
 							OR CONTINUE WITH
 						</p>
 					</div>
-					<div className="w-auto rounded-md bg-slate-300 h-[2px]"></div>
 				</div>
 				<div className="w-full flex items-center">
 					<Button

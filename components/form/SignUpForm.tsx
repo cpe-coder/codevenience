@@ -65,7 +65,7 @@ const SignUpForm = () => {
 	};
 
 	return (
-		<div className="px-14">
+		<div className="px-auto mx-auto md:px-8 lg:px-14">
 			<div className="flex flex-col items-center justify-center shadow-2xl rounded-lg p-5 gap-4">
 				<div className="flex flex-col items-center gap-1 pb-3 ">
 					<h1 className="font-bold text-slate-700 text-xl text-wrap">
@@ -77,9 +77,12 @@ const SignUpForm = () => {
 				</div>
 
 				<Form {...form}>
-					<form onSubmit={form.handleSubmit(onSubmit)} className="w-full">
+					<form
+						onSubmit={form.handleSubmit(onSubmit)}
+						className="w-full max-w-xs sm:max-w-sm md:w-[350px] px-2 sm:px-0"
+					>
 						<div className="space-y-2">
-							<div className="flex gap-2 w-[350px] ">
+							<div className="flex gap-2 lg:w-[350px] ">
 								<div className="flex flex-col space-y-2">
 									<Label htmlFor="firstName" className="text-slate-500">
 										First Name *
@@ -92,7 +95,7 @@ const SignUpForm = () => {
 												<FormControl>
 													<Input
 														placeholder="John"
-														className=" text-slate-500 bg-slate-200 rounded-md mb-2 active:outline-none focus:outline-none"
+														className="rounded-md text-slate-500 bg-slate-200 w-full active:outline-none focus:outline-none text-sm sm:text-base"
 														{...field}
 													/>
 												</FormControl>
@@ -113,7 +116,7 @@ const SignUpForm = () => {
 												<FormControl>
 													<Input
 														placeholder="Doe"
-														className=" text-slate-500 bg-slate-200 rounded-md mb-2 active:outline-none focus:outline-none"
+														className="rounded-md text-slate-500 bg-slate-200 w-full active:outline-none focus:outline-none text-sm sm:text-base"
 														{...field}
 													/>
 												</FormControl>
@@ -164,7 +167,7 @@ const SignUpForm = () => {
 								)}
 							/>
 							<div className="w-full border mb-4"></div>
-							<div className="flex gap-2 w-[350px] ">
+							<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 lg:w-[350px]">
 								<div className="space-y-2">
 									<Label htmlFor="password" className="text-slate-500">
 										Create Password *
@@ -248,13 +251,11 @@ const SignUpForm = () => {
 					</form>
 				</Form>
 				<div className=" w-full flex flex-row items-center justify-between gap-1">
-					<div className="w-full rounded-md bg-slate-300 h-[2px]"></div>
 					<div className="w-full">
-						<b className="text-slate-500 text-xs font-medium">
+						<p className="text-slate-500 text-center text-xs font-medium">
 							OR CONTINUE WITH
-						</b>
+						</p>
 					</div>
-					<div className="w-full rounded-md bg-slate-300 h-[2px]"></div>
 				</div>
 				<div className="w-full flex items-center">
 					<Button
