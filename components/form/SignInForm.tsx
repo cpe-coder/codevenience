@@ -67,9 +67,15 @@ const SignInForm = () => {
 				</div>
 
 				<Form {...form}>
-					<form onSubmit={form.handleSubmit(onSubmit)} className="w-full">
+					<form
+						onSubmit={form.handleSubmit(onSubmit)}
+						className="w-full max-w-xs sm:max-w-sm md:w-[350px] px-2 sm:px-0"
+					>
 						<div className="space-y-2">
-							<Label htmlFor="email" className="text-slate-500">
+							<Label
+								htmlFor="email"
+								className=" text-slate-500 text-sm sm:text-base"
+							>
 								Email address
 							</Label>
 							<FormField
@@ -80,7 +86,7 @@ const SignInForm = () => {
 										<FormControl>
 											<Input
 												placeholder="Enter your email address"
-												className=" text-slate-500 bg-slate-200 rounded-md mb-2 w-[350px] active:outline-none focus:outline-none"
+												className="rounded-md text-slate-500 bg-slate-200 w-full active:outline-none focus:outline-none text-sm sm:text-base"
 												{...field}
 											/>
 										</FormControl>
@@ -88,7 +94,10 @@ const SignInForm = () => {
 									</FormItem>
 								)}
 							/>
-							<Label htmlFor="password" className="text-slate-500">
+							<Label
+								htmlFor="password"
+								className="text-slate-500 text-sm sm:text-base"
+							>
 								Password
 							</Label>
 							<FormField
@@ -99,7 +108,7 @@ const SignInForm = () => {
 										<FormControl>
 											<Input
 												placeholder="Enter your password"
-												className=" rounded-md text-slate-500 bg-slate-200 w-[350px]  active:outline-none focus:outline-none"
+												className="rounded-md text-slate-500 bg-slate-200 w-full active:outline-none focus:outline-none text-sm sm:text-base"
 												type={isPasswordVisible ? "text" : "password"}
 												{...field}
 												passwordComponents={
@@ -156,13 +165,13 @@ const SignInForm = () => {
 					</form>
 				</Form>
 				<div className=" w-full flex flex-row items-center justify-between gap-1">
-					<div className="w-full rounded-md bg-slate-300 h-[2px]"></div>
-					<div className="w-full">
-						<b className="text-slate-500 text-xs font-medium">
+					<div className="w-auto rounded-md bg-slate-300 h-[4px]"></div>
+					<div className="w-auto">
+						<p className="text-slate-500 text-xs font-medium">
 							OR CONTINUE WITH
-						</b>
+						</p>
 					</div>
-					<div className="w-full rounded-md bg-slate-300 h-[2px]"></div>
+					<div className="w-auto rounded-md bg-slate-300 h-[2px]"></div>
 				</div>
 				<div className="w-full flex items-center">
 					<Button
